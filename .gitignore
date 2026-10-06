@@ -1,0 +1,9 @@
+node_modules/
+.local/
+.miracle/
+.oracle/
+.env
+.env.*
+*.tgz
+.DS_Store
+coverage/

@@ -1,0 +1,170 @@
+{
+  "src/browser/actions/assistantResponse.js": {
+    "baseSha256": "37ee8ece58ac9fa81caec0d725c20dfa7062d73d6025942a583327b51cce684e",
+    "compatibleSha256": "4c2da270ef7c6a81aaa9229e5421e27c6f05140b967db61feb49a9175446d094",
+    "replacements": [
+      {
+        "startLine": 589,
+        "endLine": 590,
+        "before": "      return Boolean(node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n",
+        "after": "      return Boolean(node.matches?.(ASSISTANT_SELECTOR) || node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n"
+      },
+      {
+        "startLine": 621,
+        "endLine": 622,
+        "before": "    if (lastAssistantTurn.querySelector('${FINISHED_ACTIONS_SELECTOR}')) return true;\n",
+        "after": "    if (\n      lastAssistantTurn.querySelector('${FINISHED_ACTIONS_SELECTOR}') ||\n      lastAssistantTurn.closest?.('[data-turn-key]')?.querySelector?.('${FINISHED_ACTIONS_SELECTOR}')\n    ) return true;\n"
+      },
+      {
+        "startLine": 778,
+        "endLine": 779,
+        "before": "      return Boolean(node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n",
+        "after": "      return Boolean(node.matches?.(ASSISTANT_SELECTOR) || node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n"
+      },
+      {
+        "startLine": 878,
+        "endLine": 879,
+        "before": "      if (lastAssistantTurn.querySelector(FINISHED_SELECTOR)) return true;\n",
+        "after": "      if (\n        lastAssistantTurn.querySelector(FINISHED_SELECTOR) ||\n        lastAssistantTurn.closest?.('[data-turn-key]')?.querySelector?.(FINISHED_SELECTOR)\n      ) return true;\n"
+      },
+      {
+        "startLine": 994,
+        "endLine": 995,
+        "before": "      return Boolean(node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n",
+        "after": "      return Boolean(node.matches?.(ASSISTANT_SELECTOR) || node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n"
+      },
+      {
+        "startLine": 1025,
+        "endLine": 1025,
+        "before": "",
+        "after": "        messageRoot.querySelector('[data-markdown-text-style=\"assistant-message\"]') ||\n"
+      },
+      {
+        "startLine": 1088,
+        "endLine": 1089,
+        "before": "    const markdownSelector = '.markdown,[data-message-content],[data-testid*=\"message\"],.prose,[class*=\"markdown\"]';\n",
+        "after": "    const markdownSelector = '.markdown,[data-markdown-text-style=\"assistant-message\"],[data-message-content],[data-testid*=\"message\"],.prose,[class*=\"markdown\"]';\n"
+      },
+      {
+        "startLine": 1254,
+        "endLine": 1255,
+        "before": "        return Boolean(node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n",
+        "after": "        return Boolean(node.matches?.(ASSISTANT_SELECTOR) || node.querySelector(ASSISTANT_SELECTOR) || node.querySelector('[data-testid*=\"assistant\"]'));\n"
+      },
+      {
+        "startLine": 1260,
+        "endLine": 1261,
+        "before": "        const button = turn.querySelector(BUTTON_SELECTOR);\n",
+        "after": "        const button =\n          turn.querySelector(BUTTON_SELECTOR) ||\n          turn.closest?.('[data-turn-key]')?.querySelector?.(BUTTON_SELECTOR);\n"
+      }
+    ]
+  },
+  "src/browser/actions/promptComposer.js": {
+    "baseSha256": "455e78e3d8bc45f88bd257d0b5c473941f01bd7c0bb4d32152d203599aba65df",
+    "compatibleSha256": "61d794c93ce092765ec98fc7f393ec8408426bc2f1fe45485ace6fe02722376e",
+    "replacements": [
+      {
+        "startLine": 389,
+        "endLine": 389,
+        "before": "",
+        "after": "      // Image tiles (2026-09): only expose \"Remove <filename>\" on the remove button.\n      'button[aria-label^=\"Remove \"]',\n"
+      },
+      {
+        "startLine": 648,
+        "endLine": 649,
+        "before": "      const button = document.querySelector('button[data-testid=\"send-button\"]');\n",
+        "after": "      const button = (document.querySelector('button[data-testid=\"send-button\"]')||document.querySelector('button[aria-label=\"Send\"]'));\n"
+      },
+      {
+        "startLine": 687,
+        "endLine": 688,
+        "before": "        const button = document.querySelector('button[data-testid=\"send-button\"]');\n",
+        "after": "        const button = (document.querySelector('button[data-testid=\"send-button\"]')||document.querySelector('button[aria-label=\"Send\"]'));\n"
+      },
+      {
+        "startLine": 695,
+        "endLine": 696,
+        "before": "              document.querySelector('button[data-testid=\"send-button\"]') === button &&\n",
+        "after": "              (document.querySelector('button[data-testid=\"send-button\"]')||document.querySelector('button[aria-label=\"Send\"]')) === button &&\n"
+      }
+    ]
+  },
+  "src/browser/actions/thinkingTime.js": {
+    "baseSha256": "15371da2aa8c52811605ac7406e7e0f7a3286c94324bb69933c69f94fdf5e93f",
+    "compatibleSha256": "bb10c98bc66d145e3fe67d1c3da6e58fcb6cce1348bf5e550e7251c091cde8e6",
+    "replacements": [
+      {
+        "startLine": 593,
+        "endLine": 593,
+        "before": "",
+        "after": "      // ChatGPT's 2026-09 model picker exposes the five-level effort slider\n      // directly in the top-level model menu and no longer carries the legacy\n      // intelligence-picker test id.\n      if (menu.querySelector?.('[data-reasoning-slider=\"true\"]')) return true;\n"
+      },
+      {
+        "startLine": 993,
+        "endLine": 995,
+        "before": "      const simple = view?.querySelector?.('[data-testid=\"composer-model-picker-slider-simple-view\"]');\n      if (!simple || simple.getAttribute('data-active') !== 'true' || !isVisible(simple)) return null;\n",
+        "after": "      const legacySimple = view?.querySelector?.('[data-testid=\"composer-model-picker-slider-simple-view\"]');\n      const directSimple = menu.querySelector?.('[data-reasoning-slider=\"true\"]') ? menu : null;\n      const simple = legacySimple || directSimple;\n      if (!simple || (legacySimple && legacySimple.getAttribute('data-active') !== 'true') || !isVisible(simple)) return null;\n"
+      },
+      {
+        "startLine": 997,
+        "endLine": 1000,
+        "before": "        const currentSimple = currentView?.querySelector?.('[data-testid=\"composer-model-picker-slider-simple-view\"]');\n        if (currentSimple?.getAttribute('data-active') !== 'true') return null;\n        const slider = currentSimple.querySelector('[data-model-reasoning-effort-slider]');\n",
+        "after": "        const currentLegacySimple = currentView?.querySelector?.('[data-testid=\"composer-model-picker-slider-simple-view\"]');\n        const currentDirectSimple = menu.querySelector?.('[data-reasoning-slider=\"true\"]') ? menu : null;\n        const currentSimple = currentLegacySimple || currentDirectSimple;\n        if (!currentSimple || (currentLegacySimple && currentLegacySimple.getAttribute('data-active') !== 'true')) return null;\n        const slider = currentSimple.querySelector('[data-model-reasoning-effort-slider], [data-reasoning-slider=\"true\"]');\n"
+      },
+      {
+        "startLine": 1124,
+        "endLine": 1125,
+        "before": "    let composerEffortPill = findComposerEffortPill();\n",
+        "after": ""
+      },
+      {
+        "startLine": 1126,
+        "endLine": 1126,
+        "before": "",
+        "after": "    // In the replacement Astra picker the model button itself owns both model and\n    // effort controls. It has no __composer-pill class, so use it only for the exact\n    // fail-closed Latest target and let the direct-slider verifier prove the tier.\n    let composerEffortPill = findComposerEffortPill() ||\n      (TARGET_IS_ASTRA_LATEST && isVisible(modelBtn) ? modelBtn : null);\n"
+      }
+    ]
+  },
+  "src/browser/constants.js": {
+    "baseSha256": "a7d1c2cfff33d2ce59dbcf562827b8452ecc229c454dd8cc5aea25fe9dbb3ec6",
+    "compatibleSha256": "58783a9eb9c1926bd4ac25a9cdaea745a9b8135293604a7e35f4c8763b9e3831",
+    "replacements": [
+      {
+        "startLine": 30,
+        "endLine": 30,
+        "before": "",
+        "after": "    '[data-chatgpt-search-unit-key$=\":assistant\"] [data-markdown-text-style=\"assistant-message\"]',\n    '[data-chatgpt-search-unit-key$=\":assistant\"]',\n"
+      },
+      {
+        "startLine": 33,
+        "endLine": 34,
+        "before": "    \"article[data-turn], div[data-turn], section[data-turn]\";\n",
+        "after": "    \"article[data-turn], div[data-turn], section[data-turn], \" +\n    '[data-chatgpt-search-unit-key$=\":user\"], [data-chatgpt-search-unit-key$=\":assistant\"]';\n"
+      },
+      {
+        "startLine": 35,
+        "endLine": 36,
+        "before": "export const ASSISTANT_ROLE_SELECTOR = '[data-message-author-role=\"assistant\"], [data-turn=\"assistant\"]';\n",
+        "after": "export const ASSISTANT_ROLE_SELECTOR = '[data-message-author-role=\"assistant\"], [data-turn=\"assistant\"], [data-chatgpt-search-unit-key$=\":assistant\"]';\n"
+      },
+      {
+        "startLine": 83,
+        "endLine": 84,
+        "before": "export const MODEL_BUTTON_SELECTOR = '[data-testid=\"model-switcher-dropdown-button\"], button.__composer-pill[aria-haspopup=\"menu\"]';\n",
+        "after": "export const MODEL_BUTTON_SELECTOR = '[data-testid=\"model-switcher-dropdown-button\"], button.__composer-pill[aria-haspopup=\"menu\"], button[data-codex-intelligence-trigger=\"true\"][aria-haspopup=\"menu\"], button[aria-label=\"Select ChatGPT model\"][aria-haspopup=\"menu\"]';\n"
+      },
+      {
+        "startLine": 85,
+        "endLine": 86,
+        "before": "export const COPY_BUTTON_SELECTOR = 'button[data-testid=\"copy-turn-action-button\"]';\n",
+        "after": "export const COPY_BUTTON_SELECTOR = 'button[data-testid=\"copy-turn-action-button\"], button[aria-label=\"Copy\"]';\n"
+      },
+      {
+        "startLine": 93,
+        "endLine": 94,
+        "before": "export const FINISHED_ACTIONS_SELECTOR = 'button[data-testid=\"copy-turn-action-button\"], button[data-testid=\"good-response-turn-action-button\"], button[data-testid=\"bad-response-turn-action-button\"], button[aria-label=\"Share\"]';\n",
+        "after": "export const FINISHED_ACTIONS_SELECTOR = 'button[data-testid=\"copy-turn-action-button\"], button[data-testid=\"good-response-turn-action-button\"], button[data-testid=\"bad-response-turn-action-button\"], button[aria-label=\"Copy\"], button[aria-label=\"Rate response\"], button[aria-label=\"Regenerate response\"], button[aria-label=\"Share\"]';\n"
+      }
+    ]
+  }
+}

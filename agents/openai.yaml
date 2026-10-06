@@ -1,0 +1,4 @@
+interface:
+  display_name: "Miracle"
+  short_description: "Oracle基盤でWorkのGPT-5.6 Sol・ウルトラに依頼"
+  default_prompt: "Use $miracle to send this bounded task through the existing Oracle browser infrastructure to ChatGPT Work with GPT-5.6 Sol and Ultra effort, verify all three settings before submission, save and check the result, and close the dedicated browser tab."
